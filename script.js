@@ -7,6 +7,7 @@ $('#btnCalc').click(()=> {
     console.log(wc);
     console.log(wcArr);
     printWordTable(wcArr);
+    generateChart(wcArr);
 });
 
 function getWords(inputText) {
@@ -60,7 +61,7 @@ function sortWordCounts(wordCounts) {
             count: wordCounts[w]
         })
     })
-    return wcArr.sort((a,b) => b.count - a.count).slice(0,50)
+    return wcArr.sort((a,b) => b.count - a.count)
 }
 
 function printWordTable(wordCountArray) {
@@ -75,4 +76,47 @@ function printWordTable(wordCountArray) {
         )
     })
 }
+
+function generateChart(wcArr) {
+    let context = document.getElementById('canvasChart').getContext('2d');
+    let chart = new Chart(context, {
+        type: 'line',
+        data: {
+            labels: wcArr.map((wc) => wc.word),
+            datasets:[
+                {
+                    label: 'Word Frequency',
+                    borderColor: 'red',
+                    borderWidth: 2,
+                    data: wcArr.map((wc) => wc.count)
+                }
+            ],
+        },
+    })
+}
+
+
+// function generateChart(wcArr) {
+//     let ctx = document.getElementById('canvasChart').getContext('2d')
+//     let chart = new Chart(ctx, {
+//       type: 'line',
+//       data: {
+//         labels: wcArr.map((wc) => wc.word),
+//         datasets: [
+//           {
+//             label: 'Word Frequency',
+//             borderColor: 'red',
+//             borderWidth: 2,
+//             data: wcArr.map((wc) => wc.count),
+//           },
+//           {
+//             label: 'Zipfs Law',
+//             borderColor: 'blue',
+//             borderWidth: 2,
+//             data: zipsLaw,
+//           },
+//         ],
+//       },
+//     })
+//   }
 

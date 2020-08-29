@@ -6,15 +6,18 @@
         <title>Document</title>
         <script src="jquery.js"></script>
         <script async defer src="script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <link rel="stylesheet" href="style_index.css">
     </head>
 
     <body>
         <label for="inputText">Paste your text here</label>
         <br>
-        <textarea id="inputText" cols="100" rows="25"></textarea>
+        <textarea id="inputText" cols="120" rows="25"></textarea>
         <br>
         <button id="btnCalc">Calculate</button>
         <br>
         <table border="1" cellpadding="2" id="tableWordCount"></table>
+        <canvas id="canvasChart" width="600" height="600"></canvas>
     </body>
 </html>

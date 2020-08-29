@@ -1,0 +1,15 @@
+#inputText {
+    border-width: 1mm;
+    border-color: black;
+}
+
+#btnCalc {
+    height: 1cm;
+    margin-left: 750px;
+    position: inherit;
+}
+
+
+#canvasChart {
+    float: right;
+}
